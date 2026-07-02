@@ -54,7 +54,7 @@ function test_local_basis_operators_3()
     space = Space(SpinfulFermionSpace(), Hypercubic(2, OpenBoundary))
     ids = collect(indices(space))
 
-    ops = local_basis_operators(ids, 2, true)
+    ops = local_basis_operators(ids, 2; only_same_site=true)
 
     @test length(ops) == 2 * 1 * 3^2
     @test all(op -> adjoint(op) == op, ops)
