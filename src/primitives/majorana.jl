@@ -3,7 +3,8 @@ Majorana X operator primitive.
 """
 struct MajoranaX <: ElementaryPrimitive{FermionTag} end
 _order_key(::MajoranaX) = (0,)
-majorana_degree(::MajoranaX) = 1
+majorana_parity(::MajoranaX) = 1
+hermitian_degree(::MajoranaX) = 1
 Base.adjoint(::MajoranaX) = MajoranaX()
 Base.show(io::IO, ::MajoranaX) = print(io, "γ₁")
 
@@ -12,7 +13,8 @@ Majorana Y operator primitive.
 """
 struct MajoranaY <: ElementaryPrimitive{FermionTag} end
 _order_key(::MajoranaY) = (1,)
-majorana_degree(::MajoranaY) = 1
+majorana_parity(::MajoranaY) = 1
+hermitian_degree(::MajoranaY) = 1
 Base.adjoint(::MajoranaY) = MajoranaY()
 Base.show(io::IO, ::MajoranaY) = print(io, "γ₂")
 
@@ -21,7 +23,7 @@ Majorana Z operator primitive.
 """
 struct MajoranaZ <: ElementaryPrimitive{FermionTag} end
 _order_key(::MajoranaZ) = (2,)
-majorana_degree(::MajoranaZ) = 2
+hermitian_degree(::MajoranaZ) = 1
 Base.adjoint(::MajoranaZ) = MajoranaZ()
 Base.show(io::IO, ::MajoranaZ) = print(io, "γ₃")
 

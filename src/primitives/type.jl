@@ -39,12 +39,25 @@ function anticommutes(
 end
 
 """
-majorana_degree(pr::AbstractPrimitive{T}) where {T<:AbstractSystemTag} -> Int
-Returns the Majorana degree of the operator primitive.
-The Majorana degree is defined as the number of Majorana operators in the primitive.
+majorana_parity(pr::AbstractPrimitive{T}) where {T<:AbstractSystemTag} -> Int
+Returns the Majorana parity of the operator primitive.
+The Majorana parity is defined as the parity of the number of Majorana operators in the primitive.
 """
-function majorana_degree(::AbstractPrimitive{T}) where {T<:AbstractSystemTag}
+function majorana_parity(::AbstractPrimitive{T}) where {T<:AbstractSystemTag}
     return 0
 end
 
+"""
+hermitian_degree(pr::AbstractPrimitive{T}) where {T<:AbstractSystemTag} -> Int
+Returns the Hermitian degree of the operator primitive.
+The Hermitian degree is defined as the number of times the operator primitive must be multiplied by itself to yield a Hermitian operator.
+"""
+function hermitian_degree(::AbstractPrimitive{T}) where {T<:AbstractSystemTag}
+    return 0
+end
+
+"""
+Abstract base type for elementary operator primitives.
+Elementary operator primitives are the fundamental building blocks of operator primitives.
+"""
 abstract type ElementaryPrimitive{T<:AbstractSystemTag} <: AbstractPrimitive{T} end
