@@ -4,14 +4,16 @@ authors = ["nattyo1226 <132973057+nattyo1226@users.noreply.github.com> and contr
 version = "1.0.0-DEV"
 
 [deps]
+Combinatorics = "861a8166-3701-5b0c-9a16-15d98fcdc6aa"
 LatticeSpaces = "a9deb695-1ab1-4287-81b1-7b7be27b3be4"
 Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"
 Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
 
 [sources]
-LatticeSpaces = {url = "https://github.com/nattyo1226/LatticeSpaces.jl", rev = "main"}
+LatticeSpaces = {rev = "main", url = "https://github.com/nattyo1226/LatticeSpaces.jl"}
 
 [compat]
+Combinatorics = "1.1.0"
 LatticeSpaces = "1.0.0"
 Printf = "1.11.0"
 Random = "1.11.0"

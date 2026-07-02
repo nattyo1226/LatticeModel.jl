@@ -1,10 +1,14 @@
 module Families
 
+using Combinatorics
 using Random
 using LatticeSpaces
 
-using ..Primitives: AbstractPrimitive, Identity, PauliX, PauliY, PauliZ, MajoranaX, MajoranaY, MajoranaZ
+using ..Primitives: AbstractPrimitive, majorana_parity, Identity, PauliX, PauliY, PauliZ, MajoranaX, MajoranaY, MajoranaZ
 using ..Operators: AbstractOperator, ProductOperator, SumOperator, local_operator
+
+include("util.jl")
+export default_eps, hermitian_phase, local_basis_operators
 
 include("operator.jl")
 export uniform_onsite, uniform_bond

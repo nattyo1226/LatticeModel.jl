@@ -19,6 +19,7 @@ export local_operator
 
 include("families/Families.jl")
 using .Families
+export default_eps, hermitian_phase, local_basis_operators
 export uniform_onsite, uniform_bond
 export tfi, xyz, cluster, hubbard, symmetric_hubbard
 
