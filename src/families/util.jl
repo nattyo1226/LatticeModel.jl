@@ -24,8 +24,8 @@ end
 function local_basis_operators(
     ids::AbstractVector{I},
     locality::Int,
-    only_same_site=false,
-    eps=default_eps(T),
+    only_same_site::Bool=false,
+    eps::Tuple{Vararg{ElementaryPrimitive{T}}}=default_eps(T),
 ) where {T<:AbstractSystemTag,I<:AbstractIndex{T}}
     pos = Vector{ProductOperator{T,I}}()
 

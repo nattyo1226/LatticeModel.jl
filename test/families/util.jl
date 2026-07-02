@@ -60,7 +60,7 @@ function test_local_basis_operators_3()
     @test all(op -> adjoint(op) == op, ops)
 end
 
-@testset "families/util.jl" begin
+@testset "utility" begin
     test_default_eps()
     test_hermitian_phase()
     test_local_basis_operators_1()

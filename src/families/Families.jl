@@ -4,7 +4,7 @@ using Combinatorics
 using Random
 using LatticeSpaces
 
-using ..Primitives: AbstractPrimitive, majorana_parity, Identity, PauliX, PauliY, PauliZ, MajoranaX, MajoranaY, MajoranaZ
+using ..Primitives: AbstractPrimitive, ElementaryPrimitive, majorana_parity, Identity, PauliX, PauliY, PauliZ, MajoranaX, MajoranaY, MajoranaZ
 using ..Operators: AbstractOperator, ProductOperator, SumOperator, local_operator
 
 include("util.jl")
