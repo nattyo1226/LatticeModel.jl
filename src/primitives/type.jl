@@ -48,15 +48,6 @@ function majorana_parity(::AbstractPrimitive{T}) where {T<:AbstractSystemTag}
 end
 
 """
-hermitian_degree(pr::AbstractPrimitive{T}) where {T<:AbstractSystemTag} -> Int
-Returns the Hermitian degree of the operator primitive.
-The Hermitian degree is defined as the number of times the operator primitive must be multiplied by itself to yield a Hermitian operator.
-"""
-function hermitian_degree(::AbstractPrimitive{T}) where {T<:AbstractSystemTag}
-    return 0
-end
-
-"""
 Abstract base type for elementary operator primitives.
 Elementary operator primitives are the fundamental building blocks of operator primitives.
 """

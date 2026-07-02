@@ -4,7 +4,7 @@ using Printf
 
 include("primitives/Primitives.jl")
 using .Primitives
-export AbstractPrimitive, isone_product, anticommutes, majorana_parity, hermitian_degree
+export AbstractPrimitive, isone_product, anticommutes, majorana_parity
 export ElementaryPrimitive
 export Identity
 export PauliX, PauliY, PauliZ
