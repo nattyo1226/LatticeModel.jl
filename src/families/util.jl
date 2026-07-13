@@ -27,18 +27,24 @@ function local_basis_operators(
     only_same_site::Bool=false,
     eps::Tuple{Vararg{ElementaryPrimitive{T}}}=default_eps(T),
 ) where {T<:AbstractSystemTag,I<:AbstractIndex{T}}
-    pos = Vector{ProductOperator{T,I}}()
+    if locality < 0
+        throw(ArgumentError("locality must be non-negative."))
+    elseif locality == 0
+        return [ProductOperator{T,I}(Vector{LocalOperator{T,I}}())]
+    else
+        pos = Vector{ProductOperator{T,I}}()
 
-    for ids_comb in combinations(ids, locality)
-        if only_same_site && length(unique(site.(ids_comb))) > 1
-            continue
+        for ids_comb in combinations(ids, locality)
+            if only_same_site && length(unique(site.(ids_comb))) > 1
+                continue
+            end
+            for eps_comb in Iterators.product(ntuple(_ -> eps, locality)...)
+                eps_comb = collect(eps_comb)
+                phase = hermitian_phase(eps_comb)
+                push!(pos, ProductOperator(ids_comb, eps_comb, phase))
+            end
         end
-        for eps_comb in Iterators.product(ntuple(_ -> eps, locality)...)
-            eps_comb = collect(eps_comb)
-            phase = hermitian_phase(eps_comb)
-            push!(pos, ProductOperator(ids_comb, eps_comb, phase))
-        end
+
+        return pos
     end
-
-    return pos
 end

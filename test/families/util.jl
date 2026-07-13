@@ -60,10 +60,21 @@ function test_local_basis_operators_3()
     @test all(op -> adjoint(op) == op, ops)
 end
 
+function test_local_basis_operators_4()
+    space = Space(SpinfulFermionSpace(), Hypercubic(2, OpenBoundary))
+    ids = collect(indices(space))
+
+    ops = local_basis_operators(ids, 0; only_same_site=false)
+
+    @test length(ops) == 1
+    @test all(op -> adjoint(op) == op, ops)
+end
+
 @testset "utility" begin
     test_default_eps()
     test_hermitian_phase()
     test_local_basis_operators_1()
     test_local_basis_operators_2()
     test_local_basis_operators_3()
+    test_local_basis_operators_4()
 end
